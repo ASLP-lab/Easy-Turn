@@ -20,7 +20,7 @@
 </div>
 
 <p align="center">
-    <img src="src/logo.png" alt="Institution 5" style="width: 600px; height: 170px; border-radius: 30px;">
+    <img src="src/logo.png" alt="Institution 5" style="width: 600px; border-radius: 30px;">
 </p>
 
 ## Download
