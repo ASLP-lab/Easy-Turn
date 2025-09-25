@@ -19,6 +19,9 @@
 
 </div>
 
+<p align="center">
+    <img src="src/logo.png" alt="Institution 5" style="width: 600px; height: 170px; border-radius: 30px;">
+</p>
 
 ## Download
 The Easy Turn resources are available at [Model](https://huggingface.co/ASLP-lab/Easy-Turn), [Trainset](https://huggingface.co/datasets/ASLP-lab/Easy-Turn-Trainset), and [Testset](https://huggingface.co/datasets/ASLP-lab/Easy-Turn-Testset).
