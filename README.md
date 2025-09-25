@@ -14,7 +14,7 @@
 
 <div align="center">
 
-| 🌐 [Huggingface](https://huggingface.co/collections/ASLP-lab/easy-turn-68d3ed0b294df61214428ea7) | 🤖 [Easy Turn Model](https://huggingface.co/ASLP-lab/Easy-Turn) | 📑 [Paper](https://arxiv.org) | 🎤 [Demo Page](https://aslp-lab.github.io) |
+|  🎤 [Demo Page](https://aslp-lab.github.io/Easy-Turn/) | 🤖 [Easy Turn Model](https://huggingface.co/ASLP-lab/Easy-Turn) | 📑 [Paper](https://arxiv.org) | 🌐 [Huggingface](https://huggingface.co/collections/ASLP-lab/easy-turn-68d3ed0b294df61214428ea7) |
 |:---:|:---:|:---:|:---:|
 
 </div>
