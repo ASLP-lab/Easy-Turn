@@ -14,8 +14,8 @@
 
 <div align="center">
 
-| 🌐 [Huggingface](https://huggingface.co/collections/ASLP-lab/easy-turn-68d3ed0b294df61214428ea7) | 🤖 [Easy Turn Model](https://huggingface.co/ASLP-lab/Easy-Turn) | 📑 [Paper](https://arxiv.org) | 🎤 [Demo Page](https://aslp-lab.github.io) |
-|:---:|:---:|:---:|:---:|
+| 🌐 [Huggingface](https://huggingface.co/collections/ASLP-lab/easy-turn-68d3ed0b294df61214428ea7) | 🤖 [Easy Turn Model](https://huggingface.co/ASLP-lab/Easy-Turn) | 📑 [Paper](https://arxiv.org) |
+|:---:|:---:|:---:|
 
 </div>
 
@@ -26,11 +26,11 @@ The Easy Turn resources are available at [Model](https://huggingface.co/ASLP-lab
 
 ## Easy Turn
 Full-duplex interaction is crucial for natural human–machine communication, yet remains challenging as it requires robust turn-taking detection to decide when the system should speak, listen, or remain silent. Existing solutions either rely on dedicated turn-taking models, most of which are not open-sourced. The few available ones are limited by their large parameter size or by supporting only a single modality, such as acoustic or linguistic. Alternatively, some approaches finetune LLM backbones to enable full-duplex capability, but this requires large amounts of full-duplex data, which remain scarce in open-source form. To address these issues, we propose **Easy Turn**—an open-source, modular turn-taking detection model that integrates acoustic and linguistic bimodal information to predict four dialogue turn states: *complete* (semantically complete), *incomplete* (semantically incomplete), *backchannel* (brief feedback), and *wait* (request to pause or end the dialogue), accompanied by the release of **Easy Turn trainset**, a 1,145-hour speech dataset designed for training turn-taking detection models. Compared to existing open-source models like [TEN Turn Detection](https://github.com/ten-framework/ten-turn-detection) and [Smart Turn V2](https://github.com/pipecat-ai/smart-turn), our model achieves state-of-the-art turn-taking detection accuracy on our open-source **Easy Turn testset**.
-<div align="center"><img width="500px" src="src/architecture.jpg" /></div>
+<div align="center"><img width="550px" src="src/architecture.jpg" /></div>
 
 ## Easy Turn Trainset
 The Easy Turn Trainset is a large-scale audio dataset for turn-taking detection, comprising both real and synthetic data. It contains four subsets corresponding to different conversational turn-taking states: 580 hours of complete turns, 532 hours of incomplete turns, 10 hours of backchannel turns, and 23 hours of wait turns, totaling approximately 1,100 hours. Each recording is accompanied by a text transcription and labeled with one of the four turn-taking states. 
-<div align="center"><img width="500px" src="src/data_pipeline.jpg" /></div>
+<div align="center"><img width="550px" src="src/data_pipeline.jpg" /></div>
 
 ## EXPERIMENTS
 ### Main Results
@@ -38,13 +38,13 @@ We evaluate Easy Turn against two open-source turn-taking detection models, TEN 
 
 | Model                         | Params (MB) ↓ | Latency (ms) | Memory (MB) | ACC_cp (%) ↑ | ACC_incp (%) | ACC_bc (%) | ACC_wait (%) |
 |-------------------------------|---------------|--------------|-------------|--------------|--------------|------------|--------------|
-| Paraformer + TEN Turn Detection | 7220          | 204          | 15419       | 86.67        | 89.3         | –          | 91           |
-| Smart Turn V2                 | **95**        | **27**       | **370**     | 78.67        | 62           | –          | –            |
+| Paraformer + [TEN Turn Detection](https://github.com/ten-framework/ten-turn-detection) | 7220          | 204          | 15419       | 86.67        | 89.3         | –          | 91           |
+| [Smart Turn V2](https://github.com/pipecat-ai/smart-turn)                 | **95**        | **27**       | **370**     | 78.67        | 62           | –          | –            |
 | Easy Turn (Proposed)          | 850           | 263          | 2559        | **96.33**    | **97.67**    | **91**     | **98**       |
 
 ### Examples
 We present several examples of Easy Turn applications in spoken dialogue systems. The content inside the angle brackets indicates the dialogue turn state detected by Easy Turn, while the text in parentheses represents the actions the system should take based on the detected dialogue turn state. To evaluate its performance in turn-taking detection, we deploy Easy Turn in our internal spoken dialogue system, where human users interact with the system through microphone input. The results show that Easy Turn performs effectively, accurately identifying dialogue turn states and enabling the system to respond appropriately. For the actual effect demonstration, you can refer to our [demo page](https://aslp-lab.github.io).
-<div align="center"><img width="500px" src="src/examples.jpg" /></div>
+<div align="center"><img width="550px" src="src/examples.jpg" /></div>
 
 ## Quick start
 ### Environment
