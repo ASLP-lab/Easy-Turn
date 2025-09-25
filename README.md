@@ -61,6 +61,7 @@ conda activate easy-turn
 ## install requirements
 pip install -r requirements.txt
 ```
+
 ### Inference
 Please first download the Easy Turn's checkpoint at [Easy Turn](https://huggingface.co/ASLP-lab/Easy-Turn).
 ```bash
@@ -81,6 +82,9 @@ bash decode/decode_common.sh \
     --ckpt_name $ckpt_name \
     --task "$task" 
 ```
+### Training
+Coming soon.
+
 ## Citation
 Please cite our paper if you find this work useful:
 
