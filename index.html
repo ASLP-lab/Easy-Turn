@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-  <title>WenetSpeech-Chuan: A Large-Scale Sichuanese Corpus With Rich Annotation For Dialectal Speech Processing</title>
+  <title>Easy Turn: Integrating Acoustic and Linguistic Modalities for Robust Turn-Taking in Full-Duplex Spoken Dialogue Systems</title>
   <meta name="generator" content="Jekyll v3.9.0">
   <meta property="og:title" content="TODO: title">
   <meta property="og:locale" content="en_US">
@@ -26,38 +26,31 @@
 
   <section class="main-content">
     <h1 id="">
-      <center>WenetSpeech-Chuan: A Large-Scale Sichuanese Corpus With Rich Annotation For Dialectal Speech Processing</center>
+      <center>Easy Turn: Integrating Acoustic and Linguistic Modalities for Robust Turn-Taking in Full-Duplex Spoken Dialogue Systems</center>
     </h1>
   
     <div style="text-align:center; line-height:1.6; font-family:Arial, sans-serif;">
   
     <p align="center">
-      Yuhang Dai<sup>1</sup><sup>,*</sup>, Ziyu Zhang<sup>1</sup><sup>,*</sup>, Shuai Wang<sup>4</sup><sup>,5</sup>, 
-      Longhao Li<sup>1</sup>, Zhao Guo<sup>1</sup>, Tianlun Zuo<sup>1</sup>, 
-      Shuiyuan Wang<sup>1</sup>, Hongfei Xue<sup>1</sup>, Chengyou Wang<sup>1</sup>, 
-      Qing Wang<sup>3</sup>, Xin Xu<sup>2</sup>, Hui Bu<sup>2</sup>, Jie Li<sup>3</sup>, 
-      Jian Kang<sup>3</sup>, Binbin Zhang<sup>5</sup>, Lei Xie<sup>1</sup><sup>,╀</sup>
+      Guojian Li<sup>1</sup>, Chengyou Wang<sup>1</sup>, Hongfei Xue<sup>1</sup>, 
+      Shuiyuan Wang<sup>1</sup>, Dehui Gao<sup>1</sup>, Zihan Zhang<sup>2</sup>, 
+      Yuke Lin<sup>2</sup>, Wenjie Li<sup>2</sup>, Longshuai Xiao<sup>2</sup>, 
+      Zhonghua Fu<sup>1</sup><sup>,╀</sup>, Lei Xie<sup>1</sup><sup>,╀</sup>
     </p>
     <p align="center">
       <sup>1</sup> Audio, Speech and Language Processing Group (ASLP@NPU), Northwestern Polytechnical University <br>
-      <sup>2</sup> Beijing AISHELL Technology Co., Ltd. <br>
-      <sup>3</sup> Institute of Artificial Intelligence (TeleAI), China Telecom <br>
-      <sup>4</sup> School of Intelligence Science and Technology, Nanjing University <br>
-      <sup>5</sup> WeNet Open Source Community <br>
+      <sup>2</sup> Huawei Technologies, China <br>
     </p>
   
   </div>
 
 
-    <p align="center">
-    📑 <a href="https://arxiv.org/abs/2509.18004">Paper</a> &nbsp&nbsp | &nbsp&nbsp 
-    🐙 <a href="https://github.com/ASLP-lab/WenetSpeech-Chuan">GitHub</a> &nbsp&nbsp | &nbsp&nbsp 
-    🤗 <a href="https://huggingface.co/collections/ASLP-lab/wenetspeech-chuan-68bade9d02bcb1faece65bda">HuggingFace</a>
-    <br>
-    🖥️ <a href="https://huggingface.co/spaces/ASLP-lab/WenetSpeech-Yue">HuggingFace Space</a> &nbsp&nbsp | &nbsp&nbsp 
-    🎤 <a href="https://github.com/ASLP-lab/WenetSpeech-Chuan/blob/demopage/index.html">Demo Page</a> &nbsp&nbsp | &nbsp&nbsp 
-    💬 <a href="https://github.com/ASLP-lab/WenetSpeech-Chuan?tab=readme-ov-file#contact">Contact Us</a>
-    </p>
+<div align="center">
+
+|  🎤 [Demo Page](https://aslp-lab.github.io/Easy-Turn/) | 🤖 [Easy Turn Model](https://huggingface.co/ASLP-lab/Easy-Turn) | 📑 [Paper](https://arxiv.org) | 🌐 [Huggingface](https://huggingface.co/collections/ASLP-lab/easy-turn-68d3ed0b294df61214428ea7) |
+|:---:|:---:|:---:|:---:|
+
+</div>
 
     <!-- 导航栏：居中、自适应宽度、半透明 + 跟随页面移动 -->
     <div style="text-align:center; margin-top:10px; position: sticky; top: 10px; z-index: 1000;">
@@ -95,7 +88,7 @@
 
 
     <h2 id="abstract" style="text-align: center;">Abstract<a name="abstract"></a></h2>
-    <p style="text-align: justify;">The scarcity of large-scale, open-source data for dialects severely hinders progress in speech technology, a challenge particularly acute for the widely spoken Sichuanese dialects of Chinese. To address this critical gap, we introduce <strong>WenetSpeech-Chuan</strong>, a 10,000-hour, richly annotated corpus constructed using our novel <strong>Chuan-Pipeline</strong>, a complete data processing framework for dialectal speech. To facilitate rigorous evaluation and demonstrate the corpus's effectiveness, we also release high-quality ASR and TTS benchmarks, <strong>WenetSpeech-Chuan-Eval</strong>, with manually verified transcriptions. Experiments show that models trained on WenetSpeech-Chuan achieve state-of-the-art performance among open-source systems and demonstrate results comparable to commercial services. As the largest open-source corpus for Sichuanese dialects, WenetSpeech-Chuan not only lowers the barrier to research in dialectal speech processing but also plays a crucial role in promoting AI equity and mitigating bias in speech technologies. The corpus, benchmarks, models, and receipts are publicly available. Demos can be found in the supplementary material.</p>
+    <p style="text-align: justify;">Full-duplex interaction is crucial for natural human–machine communication, yet remains challenging as it requires robust turn-taking detection to decide when the system should speak, listen, or remain silent. Existing solutions either rely on dedicated turn-taking models, most of which are not open-sourced. The few available ones are limited by their large parameter size or by supporting only a single modality, such as acoustic or linguistic. Alternatively, some approaches finetune LLM backbones to enable full-duplex capability, but this requires large amounts of full-duplex data, which remain scarce in open-source form. To address these issues, we propose Easy Turn—an open-source, modular turn-taking detection model that integrates acoustic and linguistic bimodal information to predict four dialogue turn states: complete, incomplete, backchannel, and wait, accompanied by the release of Easy Turn trainset, a 1,145-hour speech dataset designed for training turn-taking detection models. Compared to existing open-source models like TEN Turn Detection and Smart Turn V2, our model achieves state-of-the-art turn-taking detection accuracy on our open-source Easy Turn testset. The data and model will be made publicly available on GitHub.</p>
 
 
     <h2 id="video" style="text-align:center;">Promotional video</h2>
