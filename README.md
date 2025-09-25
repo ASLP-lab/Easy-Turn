@@ -29,7 +29,7 @@ Full-duplex interaction is crucial for natural human–machine communication, ye
 <div align="center"><img width="550px" src="src/architecture.jpg" /></div>
 
 ## Easy Turn Trainset
-The Easy Turn Trainset is a large-scale audio dataset for turn-taking detection, comprising both real and synthetic data. It contains four subsets corresponding to different conversational turn-taking states: 580 hours of complete turns, 532 hours of incomplete turns, 10 hours of backchannel turns, and 23 hours of wait turns, totaling approximately 1,100 hours. Each recording is accompanied by a text transcription and labeled with one of the four turn-taking states. 
+The Easy Turn Trainset is a large-scale audio dataset for turn-taking detection, comprising both real and synthetic data. It contains four subsets corresponding to different conversational turn-taking states: 580 hours of complete state, 532 hours of incomplete state, 10 hours of backchannel state, and 23 hours of wait state, totaling approximately 1,100 hours. Each recording is accompanied by a text transcription and labeled with one of the four turn-taking states. 
 <div align="center"><img width="550px" src="src/data_pipeline.jpg" /></div>
 
 ## EXPERIMENTS
