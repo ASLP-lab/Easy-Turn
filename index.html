@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://QicongXie.github.io/end2endvc/ -->
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <title>Easy Turn: Integrating Acoustic and Linguistic Modalities for Robust Turn-Taking in Full-Duplex Spoken Dialogue
+    Systems</title>
+  <meta name="generator" content="Jekyll v3.9.0">
+  <meta property="og:title" content="TODO: title">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
+  <section class="page-header"
+    style=" background: linear-gradient(225deg, rgba(235, 205, 121, 1.000) 0.000%, rgba(195, 205, 130, 1.000) 16.667%, rgba(151, 200, 142, 1.000) 33.333%, rgba(107, 192, 154, 1.000) 50.000%, rgba(68, 181, 163, 1.000) 66.667%, rgba(35, 168, 167, 1.000) 83.333%, rgba(13, 154, 163, 1.000) 100.000%);">
+
+  </section>
+
+  <section class="main-content">
+    <h1 id="">
+      <center>Easy Turn: Integrating Acoustic and Linguistic Modalities for Robust Turn-Taking in Full-Duplex Spoken
+        Dialogue Systems</center>
+    </h1>
+
+    <div style="text-align:center; line-height:1.6; font-family:Arial, sans-serif;">
+
+      <p align="center">
+        Guojian Li<sup>1</sup>, Chengyou Wang<sup>1</sup>, Hongfei Xue<sup>1</sup>,
+        Shuiyuan Wang<sup>1</sup>, Dehui Gao<sup>1</sup>, Zihan Zhang<sup>2</sup>,
+        Yuke Lin<sup>2</sup>, Wenjie Li<sup>2</sup>, Longshuai Xiao<sup>2</sup>,
+        Zhonghua Fu<sup>1</sup><sup>,╀</sup>, Lei Xie<sup>1</sup><sup>,╀</sup>
+      </p>
+      <p align="center">
+        <sup>1</sup> Audio, Speech and Language Processing Group (ASLP@NPU), Northwestern Polytechnical University <br>
+        <sup>2</sup> Huawei Technologies, China <br>
+      </p>
+
+    </div>
+
+
+    <div style="text-align: center;">
+      <table style="margin: auto; border-collapse: collapse;">
+        <tr>
+          <td>🎤 <a href="https://aslp-lab.github.io/Easy-Turn/">Demo Page</a></td>
+          <td>🤖 <a href="https://huggingface.co/ASLP-lab/Easy-Turn">Easy Turn Model</a></td>
+          <td>📑 <a href="https://arxiv.org">Paper</a></td>
+          <td>🌐 <a
+              href="https://huggingface.co/collections/ASLP-lab/easy-turn-68d3ed0b294df61214428ea7">Huggingface</a></td>
+        </tr>
+      </table>
+    </div>
+
+
+    <!-- 导航栏：居中、自适应宽度、半透明 + 跟随页面移动 -->
+    <div style="text-align:center; margin-top:10px; position: sticky; top: 10px; z-index: 1000;">
+      <nav style="
+        background: rgba(0, 0, 0, 0.5);
+        padding: 12px 24px;
+        display: inline-block;      /* 宽度随内容 */
+        border-radius: 10px;
+        backdrop-filter: blur(6px); /* 毛玻璃，支持的浏览器会更好看 */
+      ">
+        <a href="#abstract" class="nav-link">Abstract</a>
+        <a href="#video" class="nav-link">Promotional Videos</a>
+        <!-- <a href="#pipeline" class="nav-link">Chuan-Pipeline</a> -->
+        <a href="#model" class="nav-link">Easy Turn</a>
+        <a href="#trainset" class="nav-link">Easy Turn Trainset</a>
+        <a href="#datasample" class="nav-link">Data Samples</a>
+        <a href="#experiments" class="nav-link">EXPERIMENTS</a>
+      </nav>
+    </div>
+
+    <style>
+      /* 链接样式：保持原字号，hover 变蓝+下划线 */
+      .nav-link {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-size: 16px;
+        /* 你原来的大小 */
+        transition: color 0.2s, text-decoration 0.2s;
+      }
+
+      .nav-link:hover {
+        color: #66ccff;
+        /* 浅蓝色 hover */
+        text-decoration: underline;
+      }
+    </style>
+
+
+    <h2 id="abstract" style="text-align: center;">Abstract</h2>
+    <p>Full-duplex interaction is crucial for natural human–machine communication, yet remains challenging as it
+      requires robust turn-taking detection to decide when the system should speak, listen, or remain silent. Existing
+      solutions either rely on dedicated turn-taking models, most of which are not open-sourced. The few available ones
+      are limited by their large parameter size or by supporting only a single modality, such as acoustic or linguistic.
+      Alternatively, some approaches finetune LLM backbones to enable full-duplex capability, but this requires large
+      amounts of full-duplex data, which remain scarce in open-source form. To address these issues, we propose <b>Easy
+        Turn</b>—an open-source, modular turn-taking detection model that integrates acoustic and linguistic bimodal
+      information to predict four dialogue turn states: complete, incomplete, backchannel, and wait, accompanied by the
+      release of <b>Easy Turn trainset</b>, a 1,145-hour speech dataset designed for training turn-taking detection
+      models. Compared to existing open-source models like <a
+        href="https://github.com/ten-framework/ten-turn-detection">TEN Turn Detection</a> and <a
+        href="https://github.com/pipecat-ai/smart-turn">Smart Turn V2</a>, our model achieves state-of-the-art
+      turn-taking detection accuracy on our open-source Easy Turn testset. The data and model will be made publicly
+      available on GitHub.</p>
+
+
+    <h2 id="video" style="text-align:center;">Promotional video</h2>
+    <div style="display:flex; justify-content:center; gap:40px; margin-top:20px; flex-wrap:wrap;">
+      <div style="text-align:center; max-width:600px; width:100%;">
+        <!-- <h3>Sichuanese</h3> -->
+        <div style="position:relative; width:100%; max-width:600px; aspect-ratio:16/9; background:#000;">
+          <iframe width="100%" height="100%" src="video.mp4" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen style="position:absolute; inset:0;"></iframe>
+        </div>
+      </div>
+    </div>
+
+
+    <h2 id="model" style="text-align: center;">Easy Turn</h2>
+    <p>To accelerate research in full-duplex spoken dialogue field, we introduce Easy Turn, an open-source and modular
+      turn-taking detection model. The model accepts user's speech as input and outputs both the corresponding ASR
+      transcription and the dialogue turn state, effectively integrating acoustic and linguistic information. The Easy
+      Turn comprises three key components: an audio encoder, an audio adaptor, and an LLM. Its design draws
+      inspiration
+      from Qwen-Audio, employing Whisper as the audio encoder and Qwen2.5 as the LLM. To better integrate acoustic and
+      linguistic modalities, we adopt an ASR+Turn-Detection paradigm, where the LLM generates ASR transcriptions and
+      fuses them with acoustic features to sequentially predict dialogue turn state labels (complete, incomplete,
+      backchannel or wait).</p>
+
+    <div style="text-align:center;">
+      <img src="model.png" alt="model" width="600">
+    </div>
+
+    <h2 id="trainset" style="text-align: center;">Easy Turn Trainset</h2>
+    <p>The Easy Turn trainset is a large-scale speech dataset designed for training turn-taking detection models,
+      comprising both real and synthetic data. It comprises four dialogue turn states (complete, incomplete,
+      backchannel, wait), totaling approximately 1,145 hours. Detailed statistical data are shown in the table below.
+      The detailed data processing pipeline is shown in the following figure. For more details, please refer to the
+      original paper.</p>
+    <div style="display: flex; justify-content: space-between; text-align: center; height: 400px;">
+      <div style="display: flex; align-items: center;">
+        <img src="data_pipeline.jpg" alt="pipeline" width="800">
+      </div>
+      <div style="display: flex; align-items: center;">
+        <img src="trainset.png" alt="trainset" width="800">
+      </div>
+    </div>
+
+    <h2 id="datasample" style="text-align: center;">Data Samples</h2>
+    <table style="text-align: center; width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th style="width: 10%; ">State</th>
+          <th style="width: 45%; ">Real</th>
+          <th style="width: 45%; ">Synthetic</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>Complete</td>
+          <td style="text-align: center;vertical-align: middle;">
+
+            <audio controls="" src="samples/complete_real_1.wav"></audio>
+            <br>
+            你有没有发生过一些童年趣事啊&lt;complete&gt;
+            <hr>
+            <audio controls="" src="samples/complete_real_2.wav"></audio>
+            <br>
+            我觉得画画太难了&lt;complete&gt;
+          </td>
+          <td>
+            <audio controls="" src="samples/complete_synthetic_1.wav"></audio>
+            <br>
+            请描述古埃及金字塔的设计与用途&lt;complete&gt;
+            <hr>
+            <audio controls="" src="samples/complete_synthetic_2.wav"></audio>
+            <br>
+            初中学生的语文学习有什么特点&lt;complete&gt;
+          </td>
+        </tr>
+
+        <tr>
+          <td>InComplete</td>
+          <td style="text-align: center;vertical-align: middle;">
+
+            <audio controls="" src="samples/incomplete_real_1.wav"></audio>
+            <br>
+            因为小时候&lt;incomplete&gt;
+            <hr>
+            <audio controls="" src="samples/incomplete_real_2.wav"></audio>
+            <br>
+            我那会儿就会在嗯&lt;incomplete&gt;
+          </td>
+          <td>
+            <audio controls="" src="samples/incomplete_synthetic_1.wav"></audio>
+            <br>
+            我本来想&lt;incomplete&gt;
+            <hr>
+            <audio controls="" src="samples/incomplete_synthetic_2.wav"></audio>
+            <br>
+            其实主要想问就是&lt;incomplete&gt;
+          </td>
+        </tr>
+
+        <tr>
+          <td>Backchannel</td>
+          <td style="text-align: center;vertical-align: middle;">
+
+            <audio controls="" src="samples/backchannel_real_1.wav"></audio>
+            <br>
+            嗯对对对&lt;backchannel&gt;
+            <hr>
+            <audio controls="" src="samples/backchannel_real_2.wav"></audio>
+            <br>
+            啊是啊&lt;backchannel&gt;
+          </td>
+          <td>
+            <audio controls="" src="samples/backchannel_synthetic_1.wav"></audio>
+            <br>
+            哦对&lt;backchannel&gt;
+            <hr>
+            <audio controls="" src="samples/backchannel_synthetic_2.wav"></audio>
+            <br>
+            挺好的&lt;backchannel&gt;
+          </td>
+        </tr>
+
+        <tr>
+          <td>Wait</td>
+          <td style="text-align: center;vertical-align: middle;">
+
+            <audio controls="" src="samples/wait_real_1.wav"></audio>
+            <br>
+            太吵了马上停下&lt;wait&gt;
+            <hr>
+            <audio controls="" src="samples/wait_real_2.wav"></audio>
+            <br>
+            立即静音&lt;wait&gt;
+          </td>
+          <td>
+            <audio controls="" src="samples/wait_synthetic_1.wav"></audio>
+            <br>
+            我有急事要处理先停下&lt;wait&gt;
+            <hr>
+            <audio controls="" src="samples/wait_synthetic_2.wav"></audio>
+            <br>
+            真受不了你别说了&lt;wait&gt;
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <h2 id="experiments" style="text-align: center;">EXPERIMENTS</h2>
+    <h3 id="results" style="text-align: center;">Main Results</h3>
+    <p>We evaluate Easy Turn against two open-source turn-taking detection models, TEN Turn Detection and Smart Turn
+      V2,
+      using the Easy Turn testset. All experiments are conducted on a single NVIDIA RTX 4090 GPU. Notably, since TEN
+      Turn Detection lacks direct speech support, we use Paraformer as the ASR model to transcribe speech into text
+      and
+      take the text as its input. The table below reports the results: ACC_cp, ACC_incp, ACC_bc and ACC_wait denote
+      the
+      turn-taking detection accuracy for complete, incomplete, backchannel, and wait states (higher is better).
+      Params,
+      Latency, and Memory represent total model size, average inference time, and GPU usage, where lower values
+      indicate
+      greater efficiency. The symbol “–” indicates that the corresponding model
+      does not support detection of a particular state.</p>
+
+    <table border="1" cellpadding="5" cellspacing="0" style="width: 100%;">
+      <thead>
+        <tr>
+          <th><strong>Model</strong></th>
+          <th><strong>Params(MB)</strong> &darr;</th>
+          <th><strong>Latency(ms)</strong></th>
+          <th><strong>Memory(MB)</strong></th>
+          <th><strong>ACC<sub>cp</sub>(%)</strong> &uarr;</th>
+          <th><strong>ACC<sub>incp</sub>(%)</strong></th>
+          <th><strong>ACC<sub>bc</sub>(%)</strong></th>
+          <th><strong>ACC<sub>wait</sub>(%)</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Paraformer + <a href="https://github.com/ten-framework/ten-turn-detection">TEN Turn Detection</a></td>
+          <td>7220</td>
+          <td>204</td>
+          <td>15419</td>
+          <td>86.67</td>
+          <td>89.3</td>
+          <td>-</td>
+          <td>91</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/pipecat-ai/smart-turn">Smart Turn V2</a></td>
+          <td><strong>95</strong></td>
+          <td><strong>27</strong></td>
+          <td><strong>370</strong></td>
+          <td>78.67</td>
+          <td>62</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td><strong>Easy Turn (Proposed)</strong></td>
+          <td>850</td>
+          <td>263</td>
+          <td>2559</td>
+          <td><strong>96.33</strong></td>
+          <td><strong>97.67</strong></td>
+          <td><strong>91</strong></td>
+          <td><strong>98</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="ablation" style="text-align: center;">Ablation Study</h3>
+    <P>We conduct ablation experiments on the Easy Turn to evaluate the contribution of individual modalities within its
+      architecture and to assess the impact of the ASR + Turn-Detection paradigm on performance. The primary metric is
+      ACC_avg, computed as the average detection accuracy across four dialogue turn states
+      (complete, incomplete, backchannel, and wait). Easy
+      Turn only-state uses the same architecture as Easy Turn but omits the ASR + Turn-Detection
+      paradigm, directly predicting dialogue turn state labels without first generating ASR transcriptions. Finetuned
+      Whisper + Linear refers to fine-tuning Whisper-Medium audio encoder with an additional linear classifier on our
+      Easy Turn trainset, taking only speech as input and directly predicting dialogue turn state labels, representing
+      the acoustic-only modality. Finetuned Qwen2.5-0.5B-Instruct is fine-tuned on text transcriptions from our Easy
+      Turn trainset, taking only text as input and outputting dialogue turn state labels, representing the
+      linguistic-only modality. Detailed results are shown in the table below.</P>
+    <table border="1" cellpadding="10">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Modality</th>
+          <th><b>ACC_avg ↑</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Easy Turn (Proposed)</b></td>
+          <td>Acoustic + Linguistic</td>
+          <td><b>95.75</b></td>
+        </tr>
+        <tr>
+          <td>Easy Turn<sub>only-state</sub></td>
+          <td>Acoustic + Linguistic</td>
+          <td>87.88</td>
+        </tr>
+        <tr>
+          <td>Finetuned Qwen2.5-0.5B-Instruct</td>
+          <td>Linguistic-only</td>
+          <td>86.25</td>
+        </tr>
+        <tr>
+          <td>Finetuned Whisper + Linear</td>
+          <td>Acoustic-only</td>
+          <td>85.50</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+    <!-- <h3 id="examples" style="text-align: center;">Examples<a name="dataset"></a></h3>
+    <p>We present several examples of Easy Turn applications in spoken dialogue systems. The content inside the angle
+      brackets indicates the dialogue turn state detected by Easy Turn, while the text in parentheses represents the
+      actions the system should take based on the detected dialogue turn state. To evaluate its performance in
+      turn-taking detection, we deploy Easy Turn in our laboratory spoken dialogue system OSUM-EChat, where human users
+      interact with the system through microphone input. The results show that Easy Turn performs effectively,
+      accurately identifying dialogue turn states and enabling the system to respond appropriately. For the actual
+      effect demonstration, you can refer to our demo page.</p> -->
+
+
+  </section>
+</body>
+
+<script>
+  // 配置
+  const systems = ["ref", "Cosyvoice2", "CosyVoice2-Chuan", "StepAudio", "Llasa-1B-Chuan"];
+  const systemDisplayNames = {
+    "ref": "Reference",
+    "Llasa-1B-Chuan": "Llasa-1B-Chuan",
+    "Cosyvoice2": "Cosyvoice2",
+    "StepAudio": "Step-Audio-TTS-3B",
+    "CosyVoice2-Chuan": "CosyVoice2-Chuan",
+  };
+
+  // 动态生成表头
+  const headerRow = document.getElementById('header-row');
+  systems.forEach(sys => {
+    const th = document.createElement('th');
+    th.textContent = systemDisplayNames[sys] || sys;
+    if (sys === "Llasa-1B-Chuan" || sys === "CosyVoice2-Chuan") {
+      th.style.backgroundColor = "#ffe0b2"; // 高亮颜色
+      th.style.fontWeight = "bold";
+    }
+    headerRow.appendChild(th);
+  });
+
+  // 读取并解析text.txt
+  fetch('raw/TTS_samples/text.txt')
+    .then(response => response.text())
+    .then(text => {
+      const lines = text.trim().split('\n');
+      const data = lines.map(line => {
+        const [filename, content] = line.split('|');
+        return { filename: filename.trim(), text: content.trim() };
+      });
+
+      // 生成表格内容
+      const tbody = document.getElementById('tbody');
+      tbody.innerHTML = ""; // 清空Loading
+      data.forEach(item => {
+        const tr = document.createElement('tr');
+        // 文本列
+        const tdText = document.createElement('td');
+        tdText.className = "text-cell";
+        tdText.textContent = item.text;
+        tr.appendChild(tdText);
+
+        // 各系统音频
+        systems.forEach(sys => {
+          const td = document.createElement('td');
+          if (sys === "Llasa-1B-Chuan" || sys === "CosyVoice2-Chuan") {
+            td.style.backgroundColor = "#fff3e0"; // 高亮颜色
+          }
+          const audio = document.createElement('audio');
+          audio.controls = true;
+          audio.style.width = "180px";
+          audio.src = `raw/TTS_samples/${sys}/${item.filename}.wav`;
+          td.appendChild(audio);
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+    })
+    .catch(err => {
+      document.getElementById('tbody').innerHTML = `<tr><td colspan="${systems.length + 1}">Failed to load text.txt: ${err}</td></tr>`;
+    });
+</script>
