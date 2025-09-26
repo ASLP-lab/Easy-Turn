@@ -49,8 +49,7 @@ We evaluate **Easy Turn** against two open-source turn-taking detection models, 
 We present several examples of Easy Turn applications in spoken dialogue systems. The content inside the angle brackets indicates the dialogue turn state detected by Easy Turn, while the text in parentheses represents the actions the system should take based on the detected dialogue turn state. To evaluate its performance in turn-taking detection, we deploy Easy Turn in our laboratory spoken dialogue system [OSUM-EChat](https://github.com/ASLP-lab/OSUM), where human users interact with the system through microphone input. The results show that Easy Turn performs effectively, accurately identifying dialogue turn states and enabling the system to respond appropriately. For the actual effect demonstration, you can refer to our [Demo Page](https://aslp-lab.github.io/Easy-Turn/).
 <div align="center"><img width="550px" src="src/examples.jpg" /></div>
 
-## Quick start
-### Environment
+## Environment
 Following the steps below to clone the repository and install the environment.
 ```bash 
 # clone and enter the repositry
@@ -64,17 +63,70 @@ conda activate easy-turn
 ## install requirements
 pip install -r requirements.txt
 ```
+## Training
+### Data Types
 
-### Inference
+This project supports three types of data: **raw**, **shard**.
+
+#### **Raw Type**:
+
+Data is stored in **jsonl** format, one JSON object per line, with the following fields:
+
+```
+{
+"task": "<TRANSCRIBE> <BACKCHANNEL> <COMPLETE>",  #固定或自行参考conf/prompt.yaml
+"key": "complete_0001",  #必填
+"wav": "./complete_0001.wav",  #必填
+"txt": "你有没有发生过一些童年趣事呀？<COMPLETE>", #必填，抄本结尾带四种标签之一（<COMPLETE>，<INCOMPLETE>，<BACKCHANNEL>，<WAIT>）
+"lang": "<CN>", 
+"speaker": "G00000007", #非必需，可填<NONE>
+"emotion": "<NONE>", #非必需，可填<NONE>
+"gender": "female", #非必需，可填<NONE>
+"duration": 3.256, #非必需，可填0
+"state": "0", #非必需，可填0
+"extra": {"dataset": "magicdata_ramc"} #非必需，可为空
+}
+
+```
+
+Example:
+
+```
+./examples/wenetspeech/whisper/data/data.list
+```
+
+#### **Shard Type**:
+
+Data is packed into **tar files**, storing multiple entries together for efficient bulk loading.
+
+Example:
+
+```
+./examples/wenetspeech/whisper/data/shards_list.txt
+```
+
+Conversion script (from raw type):
+
+```shell
+./examples/wenetspeech/whisper/do_shard/shard_data.sh
+```
+
+### Start training
+Set stage=0 and stop_stage=0 for model training. After training, set stage=1 and stop_stage=1 for model merging. See the shell script for details.
+```shell
+./examples/wenetspeech/whisper/run.sh
+```
+
+## Inference
 Please first download the Easy Turn's checkpoint at [Easy Turn](https://huggingface.co/ASLP-lab/Easy-Turn).
 ```bash
-dir=
-gpu_id=6
-test_data_dir='data'
-test_sets=''
-ckpt_name=
-task='<TRANSCRIBE><BACKCHANNEL><COMPLETE>' 
-data_type='shard_full_data' # raw
+dir=./examples/wenetspeech/whisper/exp  #存放模型的本地路径，需要先进行合并，run.sh stage1
+gpu_id=6 #单卡推理
+test_data_dir='data' #测试集的大路径
+test_sets='test_1' #测试集的小路径
+ckpt_name=epoch_3.pt #checkpoint的名称
+task='<TRANSCRIBE><BACKCHANNEL><COMPLETE>' # task名称，详见conf/prompt.yaml
+data_type='shard_full_data' # raw  shard_full_data 两种类型可选，与训练相同
 
 bash decode/decode_common.sh \
     --data_type $data_type \
@@ -84,9 +136,8 @@ bash decode/decode_common.sh \
     --dir $dir \
     --ckpt_name $ckpt_name \
     --task "$task" 
+
 ```
-### Training
-Coming soon.
 
 ## Citation
 Please cite our paper if you find this work useful:
