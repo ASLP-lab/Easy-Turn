@@ -92,7 +92,7 @@ Data is stored in **jsonl** format, one JSON object per line, with the following
 Example:
 
 ```
-./examples/wenetspeech/whisper/data/data.list
+./examples/wenetspeech/whisper/data/raw.list
 ```
 
 #### **Shard Type**:
@@ -112,7 +112,8 @@ Conversion script (from raw type):
 ```
 
 ### Start training
-Set stage=0 and stop_stage=0 for model training. After training, set stage=1 and stop_stage=1 for model merging. See the shell script for details.
+Set stage = 0 and stop_stage = 0 for model training. After training, set stage = 1 and stop_stage = 1 for model merging. See the shell script for details.
+
 ```shell
 ./examples/wenetspeech/whisper/run.sh
 ```
@@ -120,11 +121,11 @@ Set stage=0 and stop_stage=0 for model training. After training, set stage=1 and
 ## Inference
 Please first download the Easy Turn's checkpoint at [Easy Turn](https://huggingface.co/ASLP-lab/Easy-Turn).
 ```bash
-dir=./examples/wenetspeech/whisper/exp  #存放模型的本地路径，需要先进行合并，run.sh stage1
+dir=./examples/wenetspeech/whisper/exp/interrupt  #存放模型的本地路径，需要先进行模型合并 
 gpu_id=6 #单卡推理
 test_data_dir='data' #测试集的大路径
-test_sets='test_1' #测试集的小路径
-ckpt_name=epoch_3.pt #checkpoint的名称
+test_sets='interrupt_test' #测试集的小路径
+ckpt_name=epoch_0.pt #checkpoint的名称
 task='<TRANSCRIBE><BACKCHANNEL><COMPLETE>' # task名称，详见conf/prompt.yaml
 data_type='shard_full_data' # raw  shard_full_data 两种类型可选，与训练相同
 
@@ -136,6 +137,7 @@ bash decode/decode_common.sh \
     --dir $dir \
     --ckpt_name $ckpt_name \
     --task "$task" 
+
 
 ```
 
