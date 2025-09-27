@@ -41,7 +41,7 @@ We evaluate **Easy Turn** against two open-source turn-taking detection models, 
 
 | Model                         | Params (MB) ↓ | Latency (ms) | Memory (MB) | ACC_cp (%) ↑ | ACC_incp (%) | ACC_bc (%) | ACC_wait (%) |
 |-------------------------------|---------------|--------------|-------------|--------------|--------------|------------|--------------|
-| Paraformer + [TEN Turn Detection](https://github.com/ten-framework/ten-turn-detection) | 7220          | 204          | 15419       | 86.67        | 89.3         | –          | 91           |
+| [Paraformer](https://github.com/modelscope/FunASR) + [TEN Turn Detection](https://github.com/ten-framework/ten-turn-detection) | 7220          | 204          | 15419       | 86.67        | 89.3         | –          | 91           |
 | [Smart Turn V2](https://github.com/pipecat-ai/smart-turn)                 | **95**        | **27**       | **370**     | 78.67        | 62           | –          | –            |
 | **Easy Turn (Proposed)**          | 850           | 263          | 2559        | **96.33**    | **97.67**    | **91**     | **98**       |
 
