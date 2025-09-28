@@ -1,0 +1,1 @@
+./examples/wenetspeech/whisper/data/shard_000000000.tar

@@ -1,0 +1,1 @@
+{"task": "<TRANSCRIBE> <BACKCHANNEL> <COMPLETE>", "key": "complete_real_001", "wav": "./complete_real_001.wav", "txt": "你有没有发生过一些童年趣事呀？<COMPLETE>", "lang": "<CN>", "speaker": "G00000007", "emotion": "<NONE>", "gender": "female", "duration": 3.256, "state": "0", "extra": {"dataset": "magicdata_ramc"}}

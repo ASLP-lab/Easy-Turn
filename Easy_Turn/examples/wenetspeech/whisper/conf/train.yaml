@@ -1,0 +1,131 @@
+model: llmasr
+
+# tokenizer 
+tokenizer: huggingface
+tokenizer_conf:
+  llm_path: ./Qwen2.5-0.5B-Instruct #请从huggingface下载，然后设置为自己的本地路径
+use_lora: false  #设置为true，对LLM进行lora微调   
+lora_alpha: 32
+lora_rank: 8
+lora_dropout: 0.1
+speech_token_num: 4097
+
+fire_module: encoder_and_link_and_llm  # 解冻参数 encoder_and_link_and_llm,  encoder, llm,  link_and_encoder。 llm需要配合use_lora为true
+downsample_rate: 4 # 1 2 4 8
+adapter_type: gxl
+llm_path: ./Qwen2.5-0.5B-Instruct #与上同
+
+optim: adamw
+optim_conf:
+  betas:
+  - 0.9
+  - 0.99
+  eps: 1.0e-06
+  lr: 5.0e-05
+  weight_decay: 0.01
+scheduler: warmuplr
+scheduler_conf:
+  warmup_steps: 8000
+
+cmvn: null
+cmvn_conf:
+  cmvn_file: null
+  is_json_cmvn: null
+ctc_conf:
+  ctc_blank_id: 50362
+
+dataset: asr
+dataset_conf:
+  emotion_en2zh_dict: conf/en2zh4emotion.json
+  batch_conf:
+    batch_size: 26
+    batch_type: dynamic
+    max_frames_in_batch: 3900 
+    max_seq_in_batch: 1900 #2000
+  feats_type: log_mel_spectrogram
+  filter_conf:
+    max_length: 2900 #2000
+    min_length: 0
+    token_max_length: 360
+    token_min_length: 1
+    filter_no_extra_info: false # 如果没有task lang 等信息,直接过滤掉, 适用于通用多任务训练, 推理时应该关掉
+    max_seq_len: 1000 #1700
+  language_conf:
+    limited_langs:
+    - zh
+  log_mel_spectrogram_conf:
+    hop_length: 160
+    n_fft: 400
+    num_mel_bins: 80
+    padding: 0
+  resample_conf:
+    resample_rate: 16000
+  shuffle: true
+  shuffle_conf:
+    shuffle_size: 1500
+  sort: true
+  sort_conf:
+    sort_size: 500
+  spec_aug: true
+  spec_aug_conf:
+    max_f: 10
+    max_t: 50
+    num_f_mask: 2
+    num_t_mask: 2
+  spec_sub: true
+  spec_sub_conf:
+    max_t: 30
+    num_t_sub: 3
+  spec_trim: false
+  speed_perturb: false
+  eod_id: 151643 # for whisper
+  split_num: 1 #10
+
+decoder: transformer
+decoder_conf:
+  activation_type: gelu
+  attention_heads: 16
+  dropout_rate: 0.1
+  gradient_checkpointing: true
+  input_layer: embed_learnable_pe
+  key_bias: false
+  linear_units: 4096
+  normalize_before: true
+  num_blocks: 24
+  positional_dropout_rate: 0.1
+  self_attention_dropout_rate: 0.0
+  src_attention: true
+  src_attention_dropout_rate: 0.0
+  tie_word_embedding: true
+  use_output_layer: true
+encoder: transformer
+encoder_conf:
+  activation_type: gelu
+  attention_dropout_rate: 0.0
+  attention_heads: 16
+  dropout_rate: 0.1
+  gradient_checkpointing: true
+  input_layer: conv1d2
+  key_bias: false
+  linear_units: 4096
+  normalize_before: true
+  num_blocks: 24
+  output_size: 1024
+  pos_enc_layer_type: abs_pos_whisper
+  positional_dropout_rate: 0.1
+  static_chunk_size: -1
+  use_dynamic_chunk: false
+  use_dynamic_left_chunk: false
+grad_clip: 5
+accum_grad: 4
+input_dim: 80
+log_interval: 10
+save_interval: 5000
+max_epoch: 100
+#model: whisper
+model_conf:
+  ctc_weight: 0
+  length_normalized_loss: false
+  lsm_weight: 0.1
+
+init_step: true #false 

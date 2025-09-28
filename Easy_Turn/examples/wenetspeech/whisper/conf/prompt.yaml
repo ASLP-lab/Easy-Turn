@@ -1,0 +1,13 @@
+<TRANSCRIBE>:
+  - 转录如下音频。
+  - 转录这段音频中的语音内容为文字。
+  - 将音频的语音部分转换为文字形式，谢谢。
+  - 将这段音频的语音内容详细记录为文字稿。
+  - 执行语音识别任务，将音频转换为文字。
+
+<TRANSCRIBE> <BACKCHANNEL> <COMPLETE>:
+  - ​请转录音频内容，并在文末添加以下四种标签之一进行打断判定：<complete>表示语义完整，<incomplete>表示语义不完整，<backchannel>表示简短的附和，<wait>表示请求暂停或终止对话。
+  - 请将音频转写为文本，并在结尾标注打断类型：<complete>（语义完整）、<incomplete>（语义不完整）、<backchannel>（附和语句）、<wait>（请求暂停或结束对话）。
+  - 请先转录音频内容，再在末尾添加打断判定标签：<complete>表示语义完整，<incomplete>表示语义不完整，<backchannel>表示简单附和，<wait>表示请求暂停或中止对话。
+  - 请将音频内容转换为文字，并在文末附加下列打断标签之一：<complete>（语义完整）、<incomplete>（语义不完整）、<backchannel>（反馈信号）、wait（表示希望暂停或结束对话）。
+  - ​请对音频进行文字转录，并在最后注明打断状态，四种标签为：<complete>代表语义完整，<incomplete>代表语义不完整，<backchannel>代表简短附和，<wait>代表请求暂停或终止交流。
