@@ -19,9 +19,6 @@
 
 </div>
 
-<p align="center">
-    <img src="src/logo.png" alt="Institution 5" style="width: 600px; border-radius: 30px;">
-</p>
 
 ## Download
 The Easy Turn resources are available at [Model](https://huggingface.co/ASLP-lab/Easy-Turn), [Trainset](https://huggingface.co/datasets/ASLP-lab/Easy-Turn-Trainset), and [Testset](https://huggingface.co/datasets/ASLP-lab/Easy-Turn-Testset).
@@ -37,7 +34,7 @@ The Easy Turn Trainset is a large-scale audio dataset for turn-taking detection,
 
 ## EXPERIMENTS
 ### Main Results
-We evaluate **Easy Turn** against two open-source turn-taking detection models, TEN Turn Detection and Smart Turn V2, using the **Easy Turn testset**. All experiments are conducted on a single NVIDIA RTX 4090 GPU. Notably, since TEN Turn Detection lacks direct speech support, we use Paraformer as the ASR model to transcribe speech into text and take the text as its input. The table below reports the results: ACC_cp, ACC_incp, ACC_bc and ACC_wait denote the turn-taking detection accuracy for *complete*, *incomplete*, *backchannel*, and *wait* states (higher is better). Params, Latency, and Memory represent total model size, average inference time, and GPU usage, where lower values indicate greater efficiency.
+We evaluate **Easy Turn** against two open-source turn-taking detection models, TEN Turn Detection and Smart Turn V2, using the **Easy Turn testset**. All experiments are conducted on a single NVIDIA RTX 4090 GPU. Notably, since TEN Turn Detection lacks direct speech support, we use Paraformer as the ASR model to transcribe speech into text and take the text as its input. The table below reports the results: **ACC_cp**, **ACC_incp**, **ACC_bc** and **ACC_wait** denote the turn-taking detection accuracy for *complete*, *incomplete*, *backchannel*, and *wait* states (higher is better). **Params**, **Latency**, and **Memory** represent total model size, average inference time, and GPU usage, where lower values indicate greater efficiency.
 
 | Model                         | Params (MB) ↓ | Latency (ms) | Memory (MB) | ACC_cp (%) ↑ | ACC_incp (%) | ACC_bc (%) | ACC_wait (%) |
 |-------------------------------|---------------|--------------|-------------|--------------|--------------|------------|--------------|
@@ -46,7 +43,7 @@ We evaluate **Easy Turn** against two open-source turn-taking detection models, 
 | **Easy Turn (Proposed)**          | 850           | 263          | 2559        | **96.33**    | **97.67**    | **91**     | **98**       |
 
 ### Examples
-We present several examples of Easy Turn applications in spoken dialogue systems. The content inside the angle brackets indicates the dialogue turn state detected by Easy Turn, while the text in parentheses represents the actions the system should take based on the detected dialogue turn state. To evaluate its performance in turn-taking detection, we deploy Easy Turn in our laboratory spoken dialogue system [OSUM-EChat](https://github.com/ASLP-lab/OSUM), where human users interact with the system through microphone input. The results show that Easy Turn performs effectively, accurately identifying dialogue turn states and enabling the system to respond appropriately. For the actual effect demonstration, you can refer to our [Demo Page](https://aslp-lab.github.io/Easy-Turn/).
+We present several examples of Easy Turn applications in spoken dialogue systems. The content inside the angle brackets indicates the dialogue turn state detected by Easy Turn, while the text in parentheses represents the actions the system should take based on the detected dialogue turn state. To evaluate its performance in turn-taking detection, we deploy Easy Turn in our laboratory spoken dialogue system [OSUM-EChat](https://github.com/ASLP-lab/OSUM), where human users interact with the system through microphone input. The results show that Easy Turn performs effectively, accurately identifying dialogue turn states and enabling the system to respond appropriately. For the actual effect demonstration, you can refer to our [demo page](https://aslp-lab.github.io).
 <div align="center"><img width="550px" src="src/examples.jpg" /></div>
 
 ## Environment
@@ -143,5 +140,4 @@ bash decode/decode_common.sh \
 
 ## Citation
 Please cite our paper if you find this work useful:
-
 
