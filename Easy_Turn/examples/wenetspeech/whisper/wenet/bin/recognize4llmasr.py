@@ -323,9 +323,9 @@ def main():
                 res_text = model.generate(wavs=feats, wavs_len=feats_lengths, prompt=prompt)
 
                 for mode in modes:
-                    line = "{}\t{}".format(keys[0], res_text)
+                    line = "{}\t{}".format(keys[0], res_text[0])
                     files[mode].write(line+'\n')
-                    utils_file.logging_print( '{} {} {}'.format(batch_idx, keys[0], res_text))
+                    utils_file.logging_print( '{} {} {}'.format(batch_idx, keys[0], res_text[0]))
                 if batch_idx % 100 == 0:
                     for mode, f in files.items():
                         f.flush()  # 强制将缓冲区内容刷新到文件
