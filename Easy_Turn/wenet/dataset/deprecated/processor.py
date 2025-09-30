@@ -177,7 +177,7 @@ def tar_file_and_group_full_data(data):
                                 'utf8').strip()
                             style_label = extract_style_from_text(example['txt'])
                             example['style'] = INTERRUPT_MAP.get(style_label, 3)
-                            example['txt'] = style_label.replace("COMPLETE", "<complete>").replace("INCOMPLETE", "<incomplete>").replace("BACKCHANNEL", "<backchannel>").replace("WAIT", "<wait>")
+                            #example['txt'] = style_label.replace("COMPLETE", "<complete>").replace("INCOMPLETE", "<incomplete>").replace("BACKCHANNEL", "<backchannel>").replace("WAIT", "<wait>")
                             #example['txt'] = example['txt'].replace("<COMPLETE>", "") #用于对话数据做asr任务
                             #print(example['txt'])
                         elif postfix == 'lang':
