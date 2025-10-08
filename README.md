@@ -49,6 +49,13 @@ We evaluate **Easy Turn** against two open-source turn-taking detection models, 
 We present several examples of Easy Turn applications in spoken dialogue systems. The content inside the angle brackets indicates the dialogue turn state detected by Easy Turn, while the text in parentheses represents the actions the system should take based on the detected dialogue turn state. To evaluate its performance in turn-taking detection, we deploy Easy Turn in our laboratory spoken dialogue system [OSUM-EChat](https://github.com/ASLP-lab/OSUM), where human users interact with the system through microphone input. The results show that Easy Turn performs effectively, accurately identifying dialogue turn states and enabling the system to respond appropriately. For the actual effect demonstration, you can refer to our [Demo Page](https://aslp-lab.github.io/Easy-Turn/).
 <div align="center"><img width="550px" src="src/examples.jpg" /></div>
 
+## TODOs
+- [x] Release Inference code.
+- [x] Release Training code.
+- [x] Release checkpoint.
+- [x] Release paper to Arxiv.
+- [ ] Support English.
+
 ## Environment
 Following the steps below to clone the repository and install the environment.
 ```bash 
@@ -143,5 +150,14 @@ bash decode/decode_common.sh \
 
 ## Citation
 Please cite our paper if you find this work useful:
-
-
+```
+@misc{li2025easyturnintegratingacoustic,
+      title={Easy Turn: Integrating Acoustic and Linguistic Modalities for Robust Turn-Taking in Full-Duplex Spoken Dialogue Systems}, 
+      author={Guojian Li and Chengyou Wang and Hongfei Xue and Shuiyuan Wang and Dehui Gao and Zihan Zhang and Yuke Lin and Wenjie Li and Longshuai Xiao and Zhonghua Fu and Lei Xie},
+      year={2025},
+      eprint={2509.23938},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2509.23938}, 
+}
+```
