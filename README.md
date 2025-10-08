@@ -52,8 +52,10 @@ We present several examples of Easy Turn applications in spoken dialogue systems
 ## TODOs
 - [x] Release Inference code.
 - [x] Release Training code.
-- [x] Release checkpoint.
+- [x] Release [Easy Turn Model](https://huggingface.co/ASLP-lab/Easy-Turn).
+- [x] Release [Easy Turn Testset](https://huggingface.co/datasets/ASLP-lab/Easy-Turn-Testset)
 - [x] Release paper to Arxiv.
+- [ ] Release [Easy Turn Trainset](https://huggingface.co/datasets/ASLP-lab/Easy-Turn-Trainset)
 - [ ] Support English.
 
 ## Environment
