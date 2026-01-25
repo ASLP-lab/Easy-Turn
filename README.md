@@ -56,7 +56,6 @@ We present several examples of Easy Turn applications in spoken dialogue systems
 - [x] Release [Easy Turn Testset](https://huggingface.co/datasets/ASLP-lab/Easy-Turn-Testset)
 - [x] Release paper to Arxiv.
 - [x] Release [Easy Turn Trainset](https://huggingface.co/datasets/ASLP-lab/Easy-Turn-Trainset)
-- [ ] Support English.
 
 ## Environment
 Following the steps below to clone the repository and install the environment.
